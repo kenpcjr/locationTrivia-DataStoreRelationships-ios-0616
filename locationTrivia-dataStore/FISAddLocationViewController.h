@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FISLocationsDataStore.h"
+#import "FISLocationsTableViewController.h"
 
 @interface FISAddLocationViewController : UIViewController
 

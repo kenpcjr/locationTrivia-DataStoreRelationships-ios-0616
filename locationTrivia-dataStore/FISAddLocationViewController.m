@@ -9,6 +9,9 @@
 #import "FISAddLocationViewController.h"
 
 @interface FISAddLocationViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UITextField *latitude;
+@property (weak, nonatomic) IBOutlet UITextField *longitude;
 
 @end
 
@@ -33,5 +36,25 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)cancelTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)saveTapped:(id)sender {
+    
+    FISLocation *newLocation = [[FISLocation alloc]initWithName:self.name.text latitude:[self.latitude.text floatValue] longitude:[self.longitude.text floatValue]];
+    
+    FISLocationsDataStore *dataStore = [FISLocationsDataStore sharedLocationsDataStore];
+    
+    [dataStore.locations addObject:newLocation];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
+//-(void)viewWillAppear:(BOOL)animated{
+//    [FISLocationsTableViewController.]
+//}
 
 @end

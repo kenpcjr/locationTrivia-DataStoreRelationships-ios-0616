@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Locations Table View Controller-->
@@ -47,7 +48,13 @@
                             <outlet property="delegate" destination="2hS-Br-igL" id="Lgz-IF-J8q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="MGM-Qz-XMl"/>
+                    <navigationItem key="navigationItem" id="MGM-Qz-XMl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ELW-i2-TMk">
+                            <connections>
+                                <segue destination="eao-9b-xbM" kind="presentation" id="A6T-yG-CQP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50f-hl-cDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,6 +103,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsR-jT-BPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1685" y="315"/>
+        </scene>
+        <!--Add Location View Controller-->
+        <scene sceneID="KMD-nw-5xf">
+            <objects>
+                <viewController id="eao-9b-xbM" customClass="FISAddLocationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDe-Pm-BP0"/>
+                        <viewControllerLayoutGuide type="bottom" id="T6Z-Tr-08z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Za-Wn-lky">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="TaH-SG-CQ7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-tK-XU4">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="nameField"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBD-kf-o48">
+                                        <rect key="frame" x="0.0" y="135" width="600" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="latitudeField"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBT-Rv-arW">
+                                        <rect key="frame" x="0.0" y="270" width="600" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="longitudeField"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NAK-tK-XU4" firstAttribute="centerX" secondItem="TaH-SG-CQ7" secondAttribute="centerX" id="9IE-kX-g42"/>
+                                    <constraint firstItem="NAK-tK-XU4" firstAttribute="top" secondItem="TaH-SG-CQ7" secondAttribute="top" constant="30" id="DYv-Rn-zRs"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPt-QI-Tya">
+                                <rect key="frame" x="174" y="420" width="48" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="cancelButton"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="eao-9b-xbM" eventType="touchUpInside" id="NqJ-Dr-Fgi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oec-B3-3Ay">
+                                <rect key="frame" x="389" y="420" width="34" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="saveButton"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveTapped:" destination="eao-9b-xbM" eventType="touchUpInside" id="nSP-0K-1tg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T6Z-Tr-08z" firstAttribute="top" secondItem="zPt-QI-Tya" secondAttribute="bottom" constant="150" id="A7k-1O-X1a"/>
+                            <constraint firstItem="zPt-QI-Tya" firstAttribute="leading" secondItem="4Za-Wn-lky" secondAttribute="leading" constant="174" id="MG8-Sv-Dm4"/>
+                            <constraint firstItem="zPt-QI-Tya" firstAttribute="baseline" secondItem="Oec-B3-3Ay" secondAttribute="baseline" id="SmF-aN-dTl"/>
+                            <constraint firstItem="TaH-SG-CQ7" firstAttribute="top" secondItem="4Za-Wn-lky" secondAttribute="top" id="glG-0O-N8q"/>
+                            <constraint firstItem="TaH-SG-CQ7" firstAttribute="width" secondItem="4Za-Wn-lky" secondAttribute="width" id="oFN-to-pXM"/>
+                            <constraint firstItem="TaH-SG-CQ7" firstAttribute="centerX" secondItem="4Za-Wn-lky" secondAttribute="centerX" id="v9H-lm-QJD"/>
+                            <constraint firstAttribute="trailing" secondItem="Oec-B3-3Ay" secondAttribute="trailing" constant="177" id="xFA-Er-L5R"/>
+                            <constraint firstItem="TaH-SG-CQ7" firstAttribute="height" secondItem="4Za-Wn-lky" secondAttribute="height" multiplier="0.5" id="zVa-JW-5Lu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="latitude" destination="cBD-kf-o48" id="mIY-7g-LKz"/>
+                        <outlet property="longitude" destination="eBT-Rv-arW" id="ecq-8j-WOL"/>
+                        <outlet property="name" destination="NAK-tK-XU4" id="phn-p3-xaK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fau-yp-eof" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2347" y="315"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dFr-FN-wzj">
