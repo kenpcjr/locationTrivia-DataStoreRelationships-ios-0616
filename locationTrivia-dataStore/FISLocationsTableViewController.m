@@ -27,6 +27,9 @@
     self.tableView.accessibilityLabel = @"Locations Table";
     self.tableView.accessibilityIdentifier = @"Locations Table";
     
+    self.navigationItem.rightBarButtonItem.accessibilityIdentifier = @"addButton";
+    self.navigationItem.rightBarButtonItem.accessibilityLabel = @"addButton";
+    
     self.store = [FISLocationsDataStore sharedLocationsDataStore];
     
 }

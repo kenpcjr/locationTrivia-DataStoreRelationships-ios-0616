@@ -26,7 +26,7 @@ describe(@"locationTriviaDataStore", ^{
     
     beforeAll(^{
     
-        UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *main = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
         
         navCon = [main instantiateInitialViewController];
         

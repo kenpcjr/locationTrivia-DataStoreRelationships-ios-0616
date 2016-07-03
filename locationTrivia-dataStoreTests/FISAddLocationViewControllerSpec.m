@@ -23,7 +23,7 @@ describe(@"FISAddLocationViewController", ^{
     beforeAll(^{
         UIWindow *window = [[UIApplication sharedApplication].delegate window];
 
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
         navController = [storyboard instantiateInitialViewController];
 
         [window setRootViewController: navController];

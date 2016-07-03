@@ -60,7 +60,52 @@
             </objects>
             <point key="canvasLocation" x="1016" y="315"/>
         </scene>
-        <!--Trivia Table View Controller-->
+        <!--Add Trivia View Controller-->
+        <scene sceneID="slZ-jP-ucM">
+            <objects>
+                <viewController id="wct-ae-V4G" customClass="FISAddTriviaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E2f-2j-hA9"/>
+                        <viewControllerLayoutGuide type="bottom" id="eS3-UV-rec"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Vl-AZ-UT9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trivium" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="837-yB-y7C">
+                                <rect key="frame" x="189" y="126" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o16-Yk-VnT">
+                                <rect key="frame" x="117" y="343" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="wct-ae-V4G" eventType="touchUpInside" id="2q9-bA-JFu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Si6-SS-SaV">
+                                <rect key="frame" x="304" y="343" width="34" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="Save Button"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveTapped:" destination="wct-ae-V4G" eventType="touchUpInside" id="CxG-Mo-7ep"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="o16-Yk-VnT" id="2dh-7Y-b8h"/>
+                        <outlet property="saveButton" destination="Si6-SS-SaV" id="nhS-am-VoV"/>
+                        <outlet property="trivium" destination="837-yB-y7C" id="P1G-Bv-s9a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Xe-hx-Y3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="-138"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="CSQ-aG-g0t">
             <objects>
                 <tableViewController id="dSa-EJ-bCD" customClass="FISTriviaTableViewController" sceneMemberID="viewController">
@@ -99,10 +144,18 @@
                             <outlet property="delegate" destination="dSa-EJ-bCD" id="Cu3-Dl-LL0"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="Eyl-eV-MCl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6AE-z8-JnM">
+                            <connections>
+                                <segue destination="wct-ae-V4G" kind="presentation" id="IlN-Wc-UJ0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsR-jT-BPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1685" y="315"/>
+            <point key="canvasLocation" x="1695" y="649"/>
         </scene>
         <!--Add Location View Controller-->
         <scene sceneID="KMD-nw-5xf">
@@ -180,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fau-yp-eof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2347" y="315"/>
+            <point key="canvasLocation" x="1016" y="-371"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dFr-FN-wzj">
